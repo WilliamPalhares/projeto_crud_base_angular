@@ -1,0 +1,33 @@
+<div class="container">
+
+  <form [formGroup]="formCliente" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label>Cliente</label>
+      <input type="text" class="form-control" formControlName="nome">
+
+      <select formControlName="paisId">
+        <option [value]="pais.id" *ngFor="let pais of paises">{{pais.descricao}}</option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary" >Adicionar</button>
+  </form>
+
+  <table class="table" style="margin-top: 20px">
+    <thead>
+      <tr>
+        <th>Código</th>
+        <th>Cliente</th>
+        <th>Pais</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cliente of clientes">
+        <td>{{ cliente.id }}</td>
+        <td>{{ cliente.nome }}</td>
+        <td>{{ cliente.pais.descricao }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
